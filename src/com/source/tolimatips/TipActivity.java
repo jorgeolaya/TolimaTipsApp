@@ -63,5 +63,23 @@ public class TipActivity extends Activity {
 		setResult(RESULT_OK, intent);
 		finish();
 	}
+	
+	public void compartir(View view) {
+		String titulo= tip.getTitulo();
+    	String descripcion=  tip.getDescripcion();
+    	String url = tip.getUrl();
+    	compartirComentario(titulo, descripcion, url);
+
+	}
+	
+	public void compartirComentario(String titulo, String descripcion, String url) {
+    	Intent sendIntent = new Intent();
+    	sendIntent.setAction(Intent.ACTION_SEND);
+    	sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Compartir un Tip");
+    	sendIntent.putExtra(Intent.EXTRA_TEXT, "Deseo compartir el siguiente tip que se titula " + titulo + " que es " + descripcion + "\n " + url);
+    	sendIntent.setType("text/plain");
+    	startActivity(Intent.createChooser(sendIntent, "Compartir en..."));
+    }
+
 
 }

@@ -73,7 +73,7 @@ public class MainActivity extends Activity {
 
 		try {
 
-			new TipsTask().execute(URL + TIPS+user.getId()).get();
+			new TipsTask().execute(URL + TIPS).get();
 			new MunicipiosTask().execute(URL + MUNICIPIOS).get();
 			new CategoriasTask().execute(URL + CATEGORIAS).get();
 		} catch (Exception e) {
