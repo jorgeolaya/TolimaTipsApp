@@ -1,0 +1,157 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context=".MapaActivity" >
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/LayoutBotonesMapa"
+        android:layout_below="@+id/LayoutBusqueda"
+        class="com.google.android.gms.maps.MapFragment" />
+
+    <LinearLayout
+        android:id="@+id/LayoutBotonesMapa"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:onClick="onClickTip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/butMapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="#901117"
+            android:drawableLeft="@drawable/ic_lista"
+            android:onClick="listTip"
+            android:text="@string/btnlis"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/butNewTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="#901117"
+            android:drawableLeft="@drawable/ic_crear_tip"
+            android:onClick="crearTip"
+            android:text="@string/btntips"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutBusqueda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#901117"
+        android:showDividers="beginning|middle" >
+
+        <TableLayout
+            android:id="@+id/TableLayout1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="100" >
+
+            <TableRow
+                android:id="@+id/rowMunicipio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1" >
+
+                <Spinner
+                    android:id="@+id/spinMunicipio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="3dp" >
+                </Spinner>
+
+                <TextView
+                    android:id="@+id/txtMunicipio"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/strMunicipio"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/activity_vertical_margin" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp" >
+
+                <Spinner
+                    android:id="@+id/spinCategoria"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <TextView
+                    android:id="@+id/txtCategoria"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/strCategoria"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/activity_vertical_margin" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowPalabraClave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="3dp" >
+
+                <EditText
+                    android:id="@+id/editPalabraClave"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textColor="#fff"
+                    android:inputType="text" />
+
+                <TextView
+                    android:id="@+id/txtPalabraClave"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/strPalabraClave"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/activity_vertical_margin" />
+            </TableRow>
+        </TableLayout>
+
+        <ImageButton
+            android:id="@+id/butBuscar"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="#901117"
+            android:onClick="onClickBusqueda"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_busqueda" />
+
+    </LinearLayout>
+
+</RelativeLayout>
